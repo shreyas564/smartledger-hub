@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:5000/api';
+// 1. Use the environment variable for the production URL, but fall back to localhost for development.
+//    Vite uses `import.meta.env.VITE_` prefix for environment variables.
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+
+console.log(`API calls are being sent to: ${API_BASE}`); // This will help you debug
 
 const api = axios.create({
   baseURL: API_BASE,
@@ -9,7 +13,9 @@ const api = axios.create({
 // Add token to requests
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
-  if (token) config.headers.Authorization = `Bearer ${token}`;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
   return config;
 });
 

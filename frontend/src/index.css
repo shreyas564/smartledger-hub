@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional font - Inter is perfect for a Figma-like UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Light Theme Colors (Figma-inspired Palette) */
+  --background: 0 0% 98%;      /* Very light gray, not pure white */
+  --foreground: 240 10% 3.9%;   /* Near-black for main text/headings */
+  --text: 240 5% 35%;           /* Softer gray for body text */
+
+  --card: 0 0% 100%;            /* Cards are white to pop against the background */
+  --card-foreground: 240 10% 3.9%;
+
+  --primary: 221.2 83.2% 53.3%; /* A strong, professional blue */
+  --primary-foreground: 210 40% 98%;
+
+  --secondary: 210 40% 96.1%;   /* A subtle gray for secondary elements */
+  --secondary-foreground: 240 5.9% 10%;
+
+  --muted: 210 40% 96.1%;       /* Muted gray, same as secondary */
+  --muted-foreground: 240 3.8% 46.1%; /* Lighter gray for muted text */
+
+  --accent: 262.1 83.3% 57.8%;   /* Vibrant purple for accents */
+  --accent-foreground: 210 40% 98%;
+
+  --destructive: 0 84.2% 60.2%;
+  --success: 142.1 70.6% 45.3%;
+  --warning: 38.3 91.7% 50.2%;
+  --info: 199.3 91.5% 55.3%;
+
+  --border: 214.3 31.8% 91.4%;  /* Subtle border color */
+  --input: 214.3 31.8% 91.4%;
+  --ring: 221.2 83.2% 53.3%;    /* Focus ring color */
+
+  /* UI Tokens (Figma Style) */
+  --radius: 0.5rem; /* Sharper, more professional radius (8px) */
+  /* Softer, more diffuse shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* More performant transitions on specific properties */
+    transition: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-duration: 150ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  body {
+    @apply bg-background text-text;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold text-foreground tracking-tight;
+  }
+  h1 { @apply text-4xl; }
+  h2 { @apply text-3xl; }
+  h3 { @apply text-2xl; }
+  p  { @apply leading-7; }
+  a  { @apply text-primary font-medium hover:underline; }
+}
+
+@layer components {
+  /* Card - Sharper radius, subtle shadow */
+  .ui-card {
+    @apply bg-card rounded-lg border shadow-md p-6;
+    /* Subtle hover: just a slightly larger shadow */
+    @apply hover:shadow-lg;
+  }
+
+  /* Glassmorphism - A modern touch */
+  .glass {
+    @apply bg-white/60 backdrop-blur-md border border-white/30 rounded-lg shadow-lg;
+  }
+
+  /* Buttons - Smaller radius, subtle hover */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+  .btn-accent {
+    @apply bg-accent text-accent-foreground hover:bg-accent/90;
+  }
+
+  /* Inputs - Sharper radius, consistent focus */
+  .input {
+    @apply w-full rounded-md border bg-transparent px-3 py-2 text-sm focus:ring-2 focus:ring-ring focus:outline-none;
+  }
+
+  /* Badge - Using themed colors */
+  .badge {
+    @apply inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold;
+  }
+  .badge-success { @apply border-transparent bg-success/20 text-success; }
+  .badge-warning { @apply border-transparent bg-warning/20 text-warning; }
+  .badge-error { @apply border-transparent bg-destructive/20 text-destructive; }
+  .badge-info { @apply border-transparent bg-info/20 text-info; }
+
+  /* Navbar - Modern, border-based separation */
+  .navbar {
+    @apply flex items-center justify-between px-6 py-3 bg-card/80 backdrop-blur-sm border-b sticky top-0 z-50;
+  }
+
+  /* Sidebar - Clean, light gray look */
+  .sidebar {
+    @apply w-64 h-screen bg-secondary p-4 flex flex-col gap-2;
+  }
+  .sidebar-item {
+    @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground cursor-pointer transition-colors;
+  }
+  .sidebar-item.active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  /* Dashboard Stat Card */
+  .stat-card {
+    @apply bg-card rounded-lg p-6 border flex flex-col gap-1;
+  }
+  .stat-value { @apply text-3xl font-bold text-foreground; }
+  .stat-label { @apply text-sm text-muted-foreground; }
+
+  /* Modal */
+  .modal {
+    @apply fixed inset-0 bg-black/50 flex items-center justify-center p-4;
+  }
+  .modal-content {
+    @apply bg-card rounded-lg shadow-lg p-6 max-w-lg w-full;
+  }
+
+  /* Table - Clean and readable */
+  .table {
+    @apply w-full border-collapse text-sm;
+  }
+  .table th {
+    @apply text-left font-medium text-muted-foreground px-4 py-3 border-b;
+  }
+  .table tr:hover {
+    @apply bg-muted/50;
+  }
+  .table td {
+    @apply px-4 py-3 border-b;
+  }
+
+  /* Empty State */
+  .empty {
+    @apply text-center py-16 text-muted-foreground;
+  }
+}

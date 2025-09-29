@@ -13,6 +13,14 @@ const app = express();
 // --- Middleware ---
 app.use(cors());
 app.use(express.json());
+const frontendURL = process.env.FRONTEND_URL || 'http://localhost:3000';
+console.log(`CORS is configured to allow requests from: ${frontendURL}`); // Debug log
+const corsOptions = {
+  origin: frontendURL,
+};
+app.use(cors(corsOptions));
+
+app.use(express.json());
 
 // Serve static files from the 'uploads' directory
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));

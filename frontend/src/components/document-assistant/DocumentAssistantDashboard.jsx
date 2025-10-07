@@ -124,7 +124,7 @@ const DocumentAssistantDashboard = ({ user, onLogout }) => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-card shadow-sm border-b px-6 py-4">
+      <header className="bg-card border-b px-6 py-4">
         <div className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold text-foreground">LEDGER - Document Assistant</h1>
@@ -147,7 +147,7 @@ const DocumentAssistantDashboard = ({ user, onLogout }) => {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-2xl shadow-lg p-8"
+              className="bg-card rounded-lg border shadow-sm p-8"
             >
               <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
                 Upload Document
@@ -293,7 +293,7 @@ const DocumentAssistantDashboard = ({ user, onLogout }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-card rounded-2xl shadow-lg p-6"
+              className="bg-card rounded-lg border shadow-sm p-6"
             >
               <h3 className="text-xl font-bold text-foreground mb-6">Recent Uploads</h3>
               

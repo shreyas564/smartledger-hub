@@ -28,7 +28,7 @@ const TopNavbar = ({ user, onLogout, onToggleSidebar, urgentAlertsCount = 0, not
   const unreadCount = notifications.filter(n => !n.isRead).length;
 
   return (
-    <header className="bg-card shadow-sm border-b z-20">
+    <header className="bg-card border-b z-20">
       <div className="h-[65px] px-6 flex items-center justify-between">
         {/* Left Section */}
         <div className="flex items-center space-x-4">
@@ -61,7 +61,7 @@ const TopNavbar = ({ user, onLogout, onToggleSidebar, urgentAlertsCount = 0, not
               {showNotifications && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-80 bg-card rounded-lg shadow-lg border z-50"
+                  className="absolute right-0 mt-2 w-80 bg-card rounded-lg shadow-sm border z-50"
                   onMouseLeave={() => setShowNotifications(false)}
                 >
                   <div className="p-3 font-semibold border-b">Notifications</div>
@@ -94,7 +94,7 @@ const TopNavbar = ({ user, onLogout, onToggleSidebar, urgentAlertsCount = 0, not
               {showProfileDropdown && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }}
-                  className="absolute right-0 mt-2 w-48 bg-card rounded-lg shadow-lg border z-50 py-1"
+                  className="absolute right-0 mt-2 w-48 bg-card rounded-lg shadow-sm border z-50 py-1"
                   onMouseLeave={() => setShowProfileDropdown(false)}
                 >
                   <button className="w-full flex items-center px-3 py-2 text-sm hover:bg-accent"><User className="w-4 h-4 mr-2" /> Profile</button>

@@ -85,7 +85,7 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center gradient-bg">
+      <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="loading-spinner text-primary"></div>
       </div>
     );

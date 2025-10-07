@@ -89,7 +89,7 @@ const ApprovalQueue = ({ user, tasks, setTasks }) => {
               key={task._id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-card rounded-lg shadow-md p-4 transition-shadow hover:shadow-lg"
+              className="bg-card rounded-md border p-4"
             >
               <div className="flex flex-col sm:flex-row justify-between">
                 {/* Task Details */}

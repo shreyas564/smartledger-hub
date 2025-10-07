@@ -41,11 +41,11 @@ const LoginPage = ({ onLogin }) => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center gradient-bg">
+    <div className="min-h-screen flex items-center justify-center bg-background">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card rounded-xl shadow-2xl p-8 w-full max-w-md"
+        className="bg-card rounded-lg border shadow-sm p-8 w-full max-w-md"
       >
         <div className="text-center mb-8">
           <div className="w-12 h-12 bg-primary rounded-md flex items-center justify-center mx-auto mb-4">

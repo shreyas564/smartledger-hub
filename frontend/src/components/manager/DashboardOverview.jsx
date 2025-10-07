@@ -52,8 +52,8 @@ const DashboardOverview = ({ user, tasks, documents }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: index * 0.1 }}
-            whileHover={{ scale: 1.03, boxShadow: '0 8px 25px -5px rgba(0,0,0,0.1)' }}
-            className="bg-card p-5 rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
+            whileHover={{ scale: 1.01 }}
+            className="bg-card p-5 rounded-md border transition-colors cursor-pointer"
             onClick={() => handleStatClick(card.key)}
           >
             <div className="flex items-center justify-between">
@@ -80,7 +80,7 @@ const DashboardOverview = ({ user, tasks, documents }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1 }}
               whileHover={{ scale: 1.03 }}
-              className="bg-secondary p-4 rounded-lg flex items-center justify-between cursor-pointer"
+            className="bg-secondary p-4 rounded-md border flex items-center justify-between cursor-pointer"
               onClick={() => handleSourceClick(source.type)}
             >
               <div className="flex items-center">

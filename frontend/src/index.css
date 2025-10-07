@@ -72,14 +72,12 @@
 @layer components {
   /* Card - Sharper radius, subtle shadow */
   .ui-card {
-    @apply bg-card rounded-lg border shadow-md p-6;
-    /* Subtle hover: just a slightly larger shadow */
-    @apply hover:shadow-lg;
+    @apply bg-card rounded-md border p-6 shadow-sm;
   }
 
   /* Glassmorphism - A modern touch */
   .glass {
-    @apply bg-white/60 backdrop-blur-md border border-white/30 rounded-lg shadow-lg;
+    @apply bg-white/60 backdrop-blur-md border border-white/30 rounded-lg shadow-md;
   }
 
   /* Buttons - Smaller radius, subtle hover */
@@ -138,7 +136,7 @@
     @apply fixed inset-0 bg-black/50 flex items-center justify-center p-4;
   }
   .modal-content {
-    @apply bg-card rounded-lg shadow-lg p-6 max-w-lg w-full;
+    @apply bg-card rounded-lg shadow-md p-6 max-w-lg w-full;
   }
 
   /* Table - Clean and readable */

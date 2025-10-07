@@ -25,7 +25,7 @@ const Sidebar = ({ menuItems, activeModule, onModuleChange, collapsed, onToggleC
     <motion.div
       initial={false}
       animate={{ width: collapsed ? 72 : 256 }}
-      className="bg-card shadow-lg flex flex-col h-full"
+      className="bg-card border-r flex flex-col h-full"
     >
       {/* Header */}
       <div className="p-4 border-b flex items-center justify-between h-[65px]">
